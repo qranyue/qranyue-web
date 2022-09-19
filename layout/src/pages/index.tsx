@@ -1,5 +1,7 @@
-import { PageContainer } from '@ant-design/pro-layout';
+import { MicroApp } from 'umi';
 
-export default function IndexPage() {
-  return <PageContainer title="欢迎"></PageContainer>;
-}
+const IndexPage = () => {
+  return <MicroApp name="welcome" />;
+};
+
+export default IndexPage;
