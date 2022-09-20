@@ -2,5 +2,8 @@
   "name": "@qrany-web/package",
   "version": "1.0.0",
   "main": "index.ts",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@umijs/plugin-request": "^2.9.0"
+  }
 }

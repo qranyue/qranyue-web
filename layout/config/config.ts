@@ -5,7 +5,7 @@ import { qiankun } from './qiankun';
 export default defineConfig({
   title: 'Qranyue',
   layout,
-  nodeModulesTransform: { type: 'none' },
+  nodeModulesTransform: { type: 'none', exclude: ['@qrany-web/package'] },
   fastRefresh: {},
   dynamicImport: { loading: '@/components/Loading' },
   webpack5: { lazyCompilation: {} },

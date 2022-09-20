@@ -1,7 +1,7 @@
 import { ProLayoutProps } from '@ant-design/pro-layout';
+import { requestInterceptor, responseInterceptor } from '@qrany-web/package';
 import { RequestConfig } from 'umi';
 import { getMenu } from './services/layout';
-import { requestInterceptor, responseInterceptor } from './utils/request';
 
 export const request: RequestConfig = {
   requestInterceptors: [requestInterceptor],
