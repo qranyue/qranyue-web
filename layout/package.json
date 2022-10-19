@@ -23,6 +23,7 @@
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@ant-design/pro-layout": "^6.38.22",
+    "@qrany-web/package": "../package",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "umi": "^3.5.34"

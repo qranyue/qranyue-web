@@ -4,6 +4,6 @@ export default {
   '/api/layout/menu': {
     success: true,
     msg: '',
-    data: [{ path: '/', name: '欢迎', icon: 'icon-home' }],
+    data: [{ key: '000', parent: '', path: '/welcome', name: '欢迎', icon: 'icon-home' }],
   },
 };

@@ -6,7 +6,7 @@ const Loading = () => {
     <>
       <PageLoading key="loading" />
       <div key="text" className={styles['login-text']}>
-        Loading...
+        <span>Loading...</span>
       </div>
     </>
   );
