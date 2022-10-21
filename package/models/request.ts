@@ -1,5 +1,10 @@
-export interface ApiRequest<T extends unknown> {
+export interface ApiResponse<T extends unknown> {
   success: boolean;
-  message: string;
+  msg: string;
   data: T;
+}
+
+export interface ApiResponseList<T extends unknown> extends Omit<ApiResponse<T>, 'data'> {
+  data: T[];
+  total: number;
 }

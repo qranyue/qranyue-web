@@ -1,15 +1,30 @@
 import { ProLayoutProps } from '@ant-design/pro-layout';
-import { requestInterceptor, responseInterceptor } from '@qrany-web/package';
+import { requestInterceptor } from '@qrany-web/package';
 import { RequestConfig } from 'umi';
-import { getMenu } from './services/layout';
+import { getRoutes } from './services/layout';
 
 export const request: RequestConfig = {
   requestInterceptors: [requestInterceptor],
-  responseInterceptors: [responseInterceptor],
 };
 
 export const layout = (): ProLayoutProps => {
   return {
-    menu: { request: getMenu },
+    menu: { request: async () => [] },
+  };
+};
+
+export const render = (oldRender: () => void) => {
+  console.log(456);
+  setTimeout(() => {
+    oldRender();
+  }, 500);
+};
+
+export const getInitialState = async () => {
+  console.log(123);
+  const [routes] = await Promise.all([getRoutes()]);
+  console.log(routes);
+  return {
+    routes,
   };
 };

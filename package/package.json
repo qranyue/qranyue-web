@@ -4,6 +4,11 @@
   "main": "index.ts",
   "license": "MIT",
   "dependencies": {
-    "@umijs/plugin-request": "^2.9.0"
+    "@ant-design/icons": "^4.7.0",
+    "@umijs/plugin-request": "^2.9.0",
+    "antd": "^4.23.6"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.21"
   }
 }
