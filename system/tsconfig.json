@@ -10,10 +10,13 @@
     "sourceMap": true,
     "baseUrl": "./",
     "strict": true,
-    "paths": {},
+    "paths": {
+      "@/*": ["src/*"],
+      "@@/*": ["src/.umi/*"]
+    },
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["components/**/*", "constants/**/*", "models/**/*", "services/**/*", "utils/**/*", "index.ts", ".umi/**/*", "typings.d.ts"],
+  "include": ["mock/**/*", "src/**/*", "config/**/*", "typings.d.ts"],
   "exclude": ["node_modules", "lib", "es", "dist", "typings", "**/__test__", "test", "docs", "tests"]
 }

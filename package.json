@@ -2,7 +2,7 @@
   "name": "qrany-web",
   "version": "0.0.1",
   "description": "ant中台页面",
-  "workspaces": ["package", "layout", "login", "welcome"],
+  "workspaces": ["package", "layout", "login", "welcome", "system"],
   "gitHooks": {
     "pre-commit": "lint-staged"
   },

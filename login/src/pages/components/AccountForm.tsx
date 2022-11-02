@@ -4,6 +4,8 @@ import type { FieldProps } from '@ant-design/pro-form/es/interface';
 import type { InputProps, InputRef, FormRule } from 'antd';
 import { memo } from 'react';
 
+const Password = ProFormText.Password;
+
 const icons: Record<'account' | 'password', FieldProps<InputRef> & InputProps> = {
   account: { size: 'large', prefix: <UserOutlined /> },
   password: { size: 'large', prefix: <LockOutlined /> },
@@ -18,7 +20,7 @@ const AccountForm = memo(() => {
   return (
     <>
       <ProFormText name="account" fieldProps={icons.account} placeholder="请输入用户名" rules={rules.account} />
-      <ProFormText name="password" fieldProps={icons.password} placeholder="请输入用户名" rules={rules.password} />
+      <Password name="password" fieldProps={icons.password} placeholder="请输入用户名" rules={rules.password} />
     </>
   );
 });

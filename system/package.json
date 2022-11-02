@@ -1,0 +1,44 @@
+{
+  "name": "@qrany-web/system",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "umi dev",
+    "build": "umi build",
+    "postinstall": "umi generate tmp",
+    "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
+    "test": "umi-test",
+    "test:coverage": "umi-test --coverage"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,less,md,json}": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
+    ]
+  },
+  "dependencies": {
+    "@ant-design/pro-layout": "^6.38.22",
+    "@ant-design/pro-table": "^3.1.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "umi": "^3.5.35"
+  },
+  "devDependencies": {
+    "@types/mockjs": "^1.0.7",
+    "@types/react": "^18.0.24",
+    "@types/react-dom": "^18.0.8",
+    "@umijs/plugin-qiankun": "^2.41.0",
+    "@umijs/preset-react": "^2.1.6",
+    "@umijs/test": "^4.0.28",
+    "lint-staged": "^13.0.3",
+    "mockjs": "^1.1.0",
+    "prettier": "^2.7.1",
+    "typescript": "^4.8.4",
+    "yorkie": "^2.0.0"
+  }
+}
