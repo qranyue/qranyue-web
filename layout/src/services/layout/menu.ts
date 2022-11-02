@@ -5,7 +5,7 @@ import { request } from 'umi';
 
 export const getRoutes = async () => {
   const list = (await request<ApiResponse<MenuItem[]>>('layout/menu')).data;
-  list.sort((a, b) => +(a.parent + a.code) - +(b.parent + b.code));
+  list.sort((a, b) => (a.parent + a.code > b.parent + b.code ? 1 : -1));
   const map: MenuMap = {};
   list.forEach((x) => {
     if (!map[x.parent]) map[x.parent] = [];
