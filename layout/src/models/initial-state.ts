@@ -6,6 +6,9 @@ export interface MenuItem {
   name: string;
 }
 
+export type MenuMap = Record<string, MenuItem[]>;
+
 export interface InitialState {
   routes: MenuItem[];
+  routeMap: MenuMap;
 }

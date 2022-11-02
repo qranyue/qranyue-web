@@ -1,5 +1,5 @@
 {
-  "name": "@qrany-web/layout",
+  "name": "@qrany-web/login",
   "private": true,
   "version": "0.0.1",
   "scripts": {
@@ -22,8 +22,7 @@
     ]
   },
   "dependencies": {
-    "@ant-design/icons": "^4.7.0",
-    "@ant-design/pro-layout": "^6.38.22",
+    "@ant-design/pro-form": "^2.2.14",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "umi": "^3.5.35"

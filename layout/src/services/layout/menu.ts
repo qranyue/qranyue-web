@@ -1,4 +1,4 @@
-import { MenuItem } from '@/models/initial-state';
+import { MenuItem, MenuMap } from '@/models/initial-state';
 import { MenuDataItem } from '@ant-design/pro-layout';
 import { ApiResponse } from '@qrany-web/package';
 import { request } from 'umi';
@@ -6,19 +6,19 @@ import { request } from 'umi';
 export const getRoutes = async () => {
   const list = (await request<ApiResponse<MenuItem[]>>('layout/menu')).data;
   list.sort((a, b) => +(a.parent + a.code) - +(b.parent + b.code));
-  return list;
+  const map: MenuMap = {};
+  list.forEach((x) => {
+    if (!map[x.parent]) map[x.parent] = [];
+    map[x.parent].push(x);
+  });
+  return { list, map };
 };
 
-export const parseMenu = (routes: MenuItem[]) => {
-  const menu: MenuDataItem[] = [];
-  const inds: Partial<Record<string, number>> = {};
-  routes.forEach((x, i) => {
-    inds[x.parent + x.code] = i;
-    if (x.parent === '') {
-      menu.push({ path: x.path, name: x.name, icon: x.icon });
-    } else {
-      const ind = inds[x.parent];
-    }
+export const parseMenu = (routes: MenuItem[], routeMap: MenuMap) => {
+  return routes.map((x) => {
+    const menu: MenuDataItem = { path: x.path, name: x.name };
+    x.icon && (menu.icon = x.icon);
+    if (routeMap[x.code]) menu.children = parseMenu(routeMap[x.code], routeMap);
+    return menu;
   });
-  return menu;
 };

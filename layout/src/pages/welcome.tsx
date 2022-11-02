@@ -1,7 +1,7 @@
 import { MicroApp } from 'umi';
 
 const WelcomePage = () => {
-  return <MicroApp name="welcome" autoSetLoading base="walcome" />;
+  return <MicroApp name="welcome" base="welcome" autoSetLoading />;
 };
 
 export default WelcomePage;

@@ -1,30 +1,33 @@
 import { ProLayoutProps } from '@ant-design/pro-layout';
-import { requestInterceptor } from '@qrany-web/package';
-import { RequestConfig } from 'umi';
-import { getRoutes } from './services/layout';
+import { local, requestInterceptor, TOKEN } from '@qrany-web/package';
+import { history, RequestConfig } from 'umi';
+import { InitialState } from './models/initial-state';
+import { getRoutes, parseMenu } from './services/layout/menu';
 
 export const request: RequestConfig = {
   requestInterceptors: [requestInterceptor],
 };
 
-export const layout = (): ProLayoutProps => {
+export const getInitialState = async (): Promise<InitialState> => {
+  if (!local.get<string>(TOKEN)) {
+    history.replace('/login');
+    return {
+      routes: [],
+      routeMap: { '': [] },
+    };
+  }
+  const data = await Promise.all([getRoutes()]);
   return {
-    menu: { request: async () => [] },
+    routes: data[0].list,
+    routeMap: data[0].map,
   };
 };
 
-export const render = (oldRender: () => void) => {
-  console.log(456);
-  setTimeout(() => {
-    oldRender();
-  }, 500);
-};
-
-export const getInitialState = async () => {
-  console.log(123);
-  const [routes] = await Promise.all([getRoutes()]);
-  console.log(routes);
+export const layout = ({ initialState }: { initialState: InitialState }): ProLayoutProps => {
   return {
-    routes,
+    menu: {
+      params: { map: initialState.routeMap },
+      request: async ({ map }) => parseMenu(map[''], map),
+    },
   };
 };

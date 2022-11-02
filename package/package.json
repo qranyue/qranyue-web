@@ -1,14 +1,12 @@
 {
   "name": "@qrany-web/package",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "main": "index.ts",
   "license": "MIT",
   "dependencies": {
-    "@ant-design/icons": "^4.7.0",
-    "@umijs/plugin-request": "^2.9.0",
-    "antd": "^4.23.6"
+    "@umijs/plugin-request": "^2.9.0"
   },
   "devDependencies": {
-    "@types/react": "^18.0.21"
+    "@types/react": "^18.0.24"
   }
 }
