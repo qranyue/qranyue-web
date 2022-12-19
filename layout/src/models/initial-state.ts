@@ -1,14 +1,20 @@
 export interface MenuItem {
-  code: string;
+  id: string;
   parent: string;
-  icon: string | null;
+  icon: string;
   path: string;
   name: string;
+  sort: number;
 }
 
-export type MenuMap = Record<string, MenuItem[]>;
+export type MenuUrls = Partial<Record<string, string>>;
+
+export type MenuObj = Partial<Record<string, MenuItem>>;
+
+export type MenuMap = Partial<Record<string, MenuItem[]>>;
 
 export interface InitialState {
-  routes: MenuItem[];
-  routeMap: MenuMap;
+  routes: MenuUrls;
+  menu: MenuObj;
+  menuMap: MenuMap;
 }

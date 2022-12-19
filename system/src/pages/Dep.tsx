@@ -14,7 +14,6 @@ const DepPage = () => {
   const columns = useMemo<ProColumns<Dep>[]>(
     () => [
       { dataIndex: 'name', title: '名称', width: 130 },
-      { dataIndex: 'code', title: '编码', width: 120 },
       { dataIndex: 'contact', title: '联系人', width: 130 },
       { dataIndex: 'phone', title: '手机号码', width: 120 },
       { dataIndex: 'option', title: '操作', valueType: 'option', fixed: 'right', render: optionRender },

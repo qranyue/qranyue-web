@@ -12,22 +12,24 @@ export const getInitialState = async (): Promise<InitialState> => {
   if (!local.get<string>(TOKEN)) {
     history.replace('/login');
     return {
-      routes: [],
-      routeMap: { '': [] },
+      routes: {},
+      menu: {},
+      menuMap: { root: [] },
     };
   }
   const data = await Promise.all([getRoutes()]);
   return {
-    routes: data[0].list,
-    routeMap: data[0].map,
+    routes: data[0].urls,
+    menu: data[0].obj,
+    menuMap: data[0].map,
   };
 };
 
 export const layout = ({ initialState }: { initialState: InitialState }): ProLayoutProps => {
   return {
     menu: {
-      params: { map: initialState.routeMap },
-      request: async ({ map }) => parseMenu(map[''], map),
+      params: { map: initialState.menuMap },
+      request: async ({ map }) => parseMenu(map['root'], map),
     },
   };
 };
